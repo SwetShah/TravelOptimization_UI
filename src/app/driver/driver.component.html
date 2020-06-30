@@ -1,0 +1,21 @@
+<div *ngIf="drivers && drivers.length > 0">
+  <table>
+    <thead>
+      <h2>Driver Details</h2>
+    </thead>
+    <tr>
+      <th>Driver Name</th>
+      <th>Customer Name</th>
+      <th>Status Name</th>
+    </tr>
+
+    <tbody>
+      <tr *ngFor = "let driver of drivers">
+        <td>{{driver.driverId}}</td>
+        <td *ngIf="driver.currentCustomerName.length>0; else templateName" >{{driver.currentCustomerName}}</td>
+        <ng-template #templateName>-</ng-template>
+        <td>{{driver.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

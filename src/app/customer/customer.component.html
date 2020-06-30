@@ -1,0 +1,42 @@
+<h2>Customer Details</h2>
+
+<form [formGroup]="form" #CustomerInformation (ngSubmit)="CustomerForm(CustomerInformation)">  
+  
+    <div class="row">  
+      <div class=" col-md-offset-1 col-md-4">  
+          <label for="fullName"> Name </label>
+          <input formControlName="fullName" class="form-control" type="text">   
+      </div>  
+    </div>  
+    
+    <div class="row">  
+      <div class=" col-md-offset-1 col-md-4">  
+          <label for="latitude"> Latitude :  </label>   
+          <span class="form-control">{{customer.latitude}}</span>
+      </div>  
+    </div> 
+    
+    <div class="row">  
+        <div class=" col-md-offset-1 col-md-4">  
+            <label for="longitude"> Longitude : </label>
+            <span class="form-control">{{customer.longitude}}</span>  
+            
+        </div>  
+      </div> 
+    
+    <div class="row" style="margin-top: 40px;">  
+      <div class="col-md-offset-1 col-md-4">  
+          <button class="btn btn-md btn-primary btn-style">Find Ride</button>  
+      </div>  
+    </div>  
+    
+  </form>  
+  <div *ngIf = "success; else templateName">
+    <br>
+    Ride Booking Succesfull<br>
+    Driver Assigned : {{driver.driverId}}<br>
+    <br>
+    Please Refresh the page to get the updated Driver's Details
+  </div>
+
+  <ng-template #templateName><br>{{failureMessage}}</ng-template>
